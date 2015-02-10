@@ -1,10 +1,14 @@
-var @_SFtype, @_SFobjid, @checkbox1, @checkbox2, @checkbox3, @checkbox4, 
+var @_SFtype, @_SFobjid, @checkbox1, @checkbox2, @checkbox3, @checkbox4, @checkbox5, @checkbox6, @checkbox7, @checkbox8, 
 @FirstName, @LastName, @Status, @Job_Title__c, @Email, @Phone, @City, @Street, @CountryCode, @StateCode, @PostalCode, @Sample_Requested__c, @LeadSource, @HasOptedOutOfEmail, @Mail_Opt_Out__c, @Students_Enrolled__c
 
 SET @checkbox1 = RequestParameter("checkbox1") 
 SET @checkbox2 = RequestParameter("checkbox2") 
 SET @checkbox3 = RequestParameter("checkbox3")
 SET @checkbox4 = RequestParameter("checkbox4") 
+SET @checkbox1 = RequestParameter("checkbox5") 
+SET @checkbox2 = RequestParameter("checkbox6") 
+SET @checkbox3 = RequestParameter("checkbox7")
+SET @checkbox4 = RequestParameter("checkbox8") 
 SET @FirstName =  RequestParameter("FirstName")
 SET @LastName =  RequestParameter("LastName")
 SET @Status =  RequestParameter("Status")
@@ -92,7 +96,7 @@ if @_SFtype == "Lead" or @_SFtype == "Contact" then
 		if @_SFtype == "Lead" then
 			SET @_crid = CreateSalesforceObject(
 				"CampaignMember", 3,
-				"CampaignId", "701G0000000xoie",
+				"CampaignId", "70116000000FII8",
 				"LeadId", @_SFobjid,
 				"Status", "Responded"
 			)
