@@ -1,15 +1,6 @@
-var @_SFtype, @_SFobjid, @CampaignId, @checkbox1, @checkbox2, @checkbox3, @checkbox4, @checkbox5, @checkbox6, @checkbox7, @checkbox8, 
-@FirstName, @LastName, @Status, @Job_Title__c, @Email, @Phone, @City, @Street, @CountryCode, @StateCode, @PostalCode, @Sample_Requested__c, @LeadSource, @HasOptedOutOfEmail, @Mail_Opt_Out__c, @Students_Enrolled__c
+var @_SFtype, @_SFobjid, @CampaignId, @FirstName, @LastName, @Status, @Job_Title__c, @Email, @Phone, @City, @Street, @CountryCode, @StateCode, @PostalCode, @Sample_Requested__c, @LeadSource, @HasOptedOutOfEmail, @Mail_Opt_Out__c, @Students_Enrolled__c
 
 SET @CampaignId = RequestParameter("CampaignId")
-SET @checkbox1 = RequestParameter("checkbox1") 
-SET @checkbox2 = RequestParameter("checkbox2") 
-SET @checkbox3 = RequestParameter("checkbox3")
-SET @checkbox4 = RequestParameter("checkbox4") 
-SET @checkbox1 = RequestParameter("checkbox5") 
-SET @checkbox2 = RequestParameter("checkbox6") 
-SET @checkbox3 = RequestParameter("checkbox7")
-SET @checkbox4 = RequestParameter("checkbox8") 
 SET @FirstName =  RequestParameter("FirstName")
 SET @LastName =  RequestParameter("LastName")
 SET @Status =  RequestParameter("Status")
@@ -26,6 +17,7 @@ SET @Lead_Type__c = RequestParameter("Lead_Type__c")
 SET @Rating = "B-Requested Contact",
 SET @Students_Enrolled__c = RequestParameter("Students_Enrolled__c")
 SET @Sample_Requested__c = RequestParameter("Sample_Requested__c")
+SET @Product_Number__c = RequestParameter("Product_Number__c")
 SET @Current_Materials__c = RequestParameter("Current_Materials__c")
 SET @HasOptedOutOfEmail = IsNullDefault(RequestParameter("HasOptedOutOfEmail"),"True")
 SET @Mail_Opt_Out__c = IsNullDefault(RequestParameter("Mail_Opt_Out__c"),"True")
@@ -33,31 +25,6 @@ SET @Phone = FORMAT(@Phone,"(###) ###-####")
 
 IF Empty(@Students_Enrolled__c) then
 
-	SET @_SFobjid = CreateSalesforceObject(
-		"Lead",19,
-		"Company",@Company,
-		"LastName",@LastName,
-		"Status",@Status,
-		"FirstName",@FirstName,
-		"Job_Title__c",@Job_Title__c,
-		"LeadSource", "Email",
-		"Email",@Email,
-		"Phone",@Phone,
-		"Street",@Street,
-		"City",@City,
-		"CountryCode",@CountryCode,
-		"StateCode",@StateCode,
-		"PostalCode",@PostalCode,
-		"Sample_Requested__c",@Sample_Requested__c,
-		"Lead_Type__c", @Lead_Type__c,
-		"Rating", "B-Requested Contact",
-		"Current_Materials__c", @Current_Materials__c,
-		"HasOptedOutOfEmail",@HasOptedOutOfEmail,
-		"Mail_Opt_Out__c", @Mail_Opt_Out__c
-	)
-
-ELSE	
-	
 	SET @_SFobjid = CreateSalesforceObject(
 		"Lead",20,
 		"Company",@Company,
@@ -74,6 +41,33 @@ ELSE
 		"StateCode",@StateCode,
 		"PostalCode",@PostalCode,
 		"Sample_Requested__c",@Sample_Requested__c,
+		"Product_Number__c",@Product_Number__c,
+		"Lead_Type__c", @Lead_Type__c,
+		"Rating", "B-Requested Contact",
+		"Current_Materials__c", @Current_Materials__c,
+		"HasOptedOutOfEmail",@HasOptedOutOfEmail,
+		"Mail_Opt_Out__c", @Mail_Opt_Out__c
+	)
+
+ELSE	
+	
+	SET @_SFobjid = CreateSalesforceObject(
+		"Lead",21,
+		"Company",@Company,
+		"LastName",@LastName,
+		"Status",@Status,
+		"FirstName",@FirstName,
+		"Job_Title__c",@Job_Title__c,
+		"LeadSource", "Email",
+		"Email",@Email,
+		"Phone",@Phone,
+		"Street",@Street,
+		"City",@City,
+		"CountryCode",@CountryCode,
+		"StateCode",@StateCode,
+		"PostalCode",@PostalCode,
+		"Sample_Requested__c",@Sample_Requested__c,
+		"Product_Number__c",@Product_Number__c,
 		"Lead_Type__c", @Lead_Type__c,
 		"Rating", "B-Requested Contact",
 		"Students_Enrolled__c", @Students_Enrolled__c,
@@ -97,7 +91,7 @@ if @_SFtype == "Lead" or @_SFtype == "Contact" then
 		if @_SFtype == "Lead" then
 			SET @_crid = CreateSalesforceObject(
 				"CampaignMember", 3,
-				"CampaignId", "@CampaignId",
+				"CampaignId", @CampaignId,
 				"LeadId", @_SFobjid,
 				"Status", "Responded"
 			)
