@@ -85,14 +85,18 @@ $(document).ready(function () {
 	});
 });
 
-// Combine selected products and insert into 'Sample_Requested__c' field in Salesforce
+// Combine selected products and insert into 'Product_Number__c' field in Salesforce
 // Note: product checkbox options must use the 'products' class
 $(document).submit(function () {
+    var sampleNote = 'Customer requests ';
+    sampleNote = sampleNote + $('#Sample_Requested__c').val();
+    
     var sampleRequested = $(":checked.products")
         .map(function () {
         return this.value;
     })
     .get()
     .join("\n");
-    $('#Sample_Requested__c').attr('value',sampleRequested);
+    $('#Product_Number__c').attr('value',sampleRequested);
+    $('#Sample_Requested__c').attr('value',sampleNote);
 });
