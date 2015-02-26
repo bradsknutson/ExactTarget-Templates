@@ -1,9 +1,58 @@
 <div class="row">
 	<div class="col-md-4"></div>
 	<div class="col-md-4">	
-		<h2 class="center">Product Request Form</h2>
+		<h2 class="center">[Product_Name] Request Form</h2>
 		<p class="center"><span class="red">*</span><strong>Required</strong></p>
 		<form method="POST" action="%%= RequestParameter('PAGEURL') =%%">
+
+			<label>Select Products:</label>
+			<div class="form-group">
+				<div class="col-md-6">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222111 - Product 1" class="products" name="checkbox1" id="checkbox1" />Product #1
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222222 - Product 2" class="products" name="checkbox2" id="checkbox2" />Product #2
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222333 - Product 3" class="products" name="checkbox3" id="checkbox3" />Product #3
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222444 - Product 4" class="products" name="checkbox4" id="checkbox4" />Product #4
+						</label>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222555 - Product 5" class="products" name="checkbox5" id="checkbox5" />Product #5
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222666 - Product 6" class="products" name="checkbox6" id="checkbox6" />Product #6
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222777 - Product 7" class="products" name="checkbox7" id="checkbox7" />Product #7
+						</label>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" value="WWY222888 - Product 8" class="products" name="checkbox8" id="checkbox8" />Product #8
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>            
 			<div class="form-group">
 				<label for="FirstName">First Name:<span class="red">*</span></label>
 				<input type="text" required="required" value="" name="FirstName" id="FirstName" placeholder="First Name" class="form-control"/>
@@ -432,54 +481,14 @@
 				<label for="Phone">Phone:<span class="red">*</span></label>
 				<input type="tel" required="required" maxlength="255" value="" spellcheck="false" name="Phone" id="Phone" placeholder="Phone number" class="form-control" /> 
 			</div>
-			<label>Select Products:</label>
 			<div class="form-group">
-				<div class="col-md-6">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222111 - Product 1" class="products" name="checkbox1" id="checkbox1" />Product #1
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222222 - Product 2" class="products" name="checkbox1" id="checkbox1" />Product #2
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222333 - Product 3" class="products" name="checkbox1" id="checkbox1" />Product #3
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222444 - Product 4" class="products" name="checkbox1" id="checkbox1" />Product #4
-						</label>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222555 - Product 5" class="products" name="checkbox1" id="checkbox1" />Product #5
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222666 - Product 6" class="products" name="checkbox1" id="checkbox1" />Product #6
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222777 - Product 7" class="products" name="checkbox1" id="checkbox1" />Product #7
-						</label>
-					</div>
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="WWY222888 - Product 8" class="products" name="checkbox1" id="checkbox1" />Product #8
-						</label>
-					</div>
-				</div>
+				<label for="Students_Enrolled__c">Number of students:<span class="red">*</span></label>
+				<input type="number" maxlength="7" value="" spellcheck="false" name="Students_Enrolled__c" id="Students_Enrolled__c" placeholder="Number of students" class="form-control" />
 			</div>
-			<div class="clearfix"></div>
+			<div class="form-group">
+				<label for="Current_Materials__c">Textbook currently using:<span class="red">*</span></label>
+				<input type="text" name="Current_Materials__c" id="Current_Materials__c" class="form-control" class="form-control" placeholder="Textbook currently using" />
+			</div>
 			
 			<div class="checkbox">
 				<label>
@@ -502,7 +511,9 @@
 			<input type="hidden" name="__contextName" id="__contextName" value="FormPost" />
 			<input type="hidden" name="__executionContext" id="__executionContext" value="Post" />
 			<input type="hidden" name="Lead_Type__c" id="Lead_Type__c" value="Post-Secondary" />
-			<input type="hidden" name="Sample_Requested__c" id="Sample_Requested__c" value="" />
+			<input type="hidden" name="Product_Number__c" id="Product_Number__c" value="" />
+			<input type="hidden" name="Sample_Requested__c" id="Sample_Requested__c" value="[Clean_Product_Name]" />
+			<input type="hidden" name="CampaignId" id="CampaignId" value="[Salesforce_ID]" />
 			<!-- END Hidden Inputs -->
 		</form>
 	</div>
