@@ -16,8 +16,9 @@ var TodaysDate = d.getFullYear() + '-' +
 
 // Datepicker
 $(document).ready(function () {
-   $('input.date').datepicker({ dateFormat: 'yy-mm-dd' });
-   $('#Decision_Date__c').val(TodaysDate);
+   //$('input.date').datepicker({ dateFormat: 'yy-mm-dd' });
+   //$('#Decision_Date__c').val(TodaysDate);
+   $( "#Decision_Date__c" ).datepicker();
 });
 
 $(document).ready(function () {
