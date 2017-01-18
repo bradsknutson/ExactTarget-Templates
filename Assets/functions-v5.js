@@ -2,8 +2,8 @@ $USALabel = 'State:<span class="red">*</span>';
 $CALabel = 'Province:<span class="red">*</span>';
 
 $JISTSuccess = 'http://jist.emcp.com/jist-lp-thank-you';
-$PESSuccess = 'http://paradigm.emcp.com/pes-lp-thank-you';
-$EMCSuccess = 'http://store.emcp.com/emc-lp-thank-you';
+$PESSuccess = 'http://paradigmeducation.com/thank-you/';
+$EMCSuccess = 'http://www.emcp.com/thank-you/digital-sampler';
 
 var d = new Date();
 
